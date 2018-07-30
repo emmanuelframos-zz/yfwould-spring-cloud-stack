@@ -1,0 +1,34 @@
+plugins {
+    id "java"
+    id "org.springframework.boot" version "1.5.14.RELEASE"
+}
+
+repositories {
+    jcenter()
+}
+
+jar {
+    baseName = "goodweather-partytime-sd"
+}
+
+bootRun {
+    systemProperties System.properties
+}
+
+configurations {
+    compile.exclude module: "spring-boot-starter-tomcat"
+    compile.exclude group: "org.apache.tomcat"
+}
+
+dependencies {
+
+    /** Spring Boot Stack **/
+    def springBootVersion = '1.5.14.RELEASE'
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    compile "org.springframework.boot:spring-boot-starter-jetty:${springBootVersion}"
+
+    /** Spring Cloud Stack **/
+    def springCloudVersion = '1.4.5.RELEASE'
+    compile "org.springframework.cloud:spring-cloud-starter-eureka-server:${springCloudVersion}"
+
+}

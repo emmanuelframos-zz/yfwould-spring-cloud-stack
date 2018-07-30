@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "6b161a82-e819-4420-b675-ac19d5aa1543",
+		"name": "Spotify Partytime",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PlaylistTracks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/tracks/playlist/5hSEnhVI5wA7d2rSpHl32v",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"tracks",
+						"playlist",
+						"5hSEnhVI5wA7d2rSpHl32v"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

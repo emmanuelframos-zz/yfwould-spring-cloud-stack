@@ -1,0 +1,5 @@
+include 'yfwould-spotify-partytime-ms',
+        'yfwould-openweather-goodweather-ms',
+        'yfwould-goodweather-for-partytime-sd',
+        'yfwould-goodweather-for-partytime-ms',
+        'yfwould-goodweather-for-partytime-gateway'
