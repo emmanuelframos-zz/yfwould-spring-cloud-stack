@@ -8,7 +8,7 @@ repositories {
 }
 
 jar {
-    baseName = "goodweather-partytime-sd"
+    baseName = "ms-spotify-partytime"
 }
 
 bootRun {

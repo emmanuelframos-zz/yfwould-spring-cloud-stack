@@ -8,7 +8,7 @@ repositories {
 }
 
 jar {
-    baseName = "goodweather-partytime"
+    baseName = "ms-goodweather-partytime"
 }
 
 bootRun {

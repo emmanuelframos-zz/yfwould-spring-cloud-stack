@@ -8,7 +8,7 @@ repositories {
 }
 
 jar {
-    baseName = "goodweather-partytime-gateway"
+    baseName = "gateway-goodweather-partytime"
 }
 
 bootRun {

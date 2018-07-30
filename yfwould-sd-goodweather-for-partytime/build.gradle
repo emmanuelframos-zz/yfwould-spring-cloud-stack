@@ -8,7 +8,7 @@ repositories {
 }
 
 jar {
-    baseName = "goodweather-partytime-sd"
+    baseName = "sd-goodweather-partytime"
 }
 
 bootRun {
