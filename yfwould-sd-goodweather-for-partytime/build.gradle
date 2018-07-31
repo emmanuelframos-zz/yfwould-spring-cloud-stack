@@ -3,10 +3,6 @@ plugins {
     id "org.springframework.boot" version "1.5.14.RELEASE"
 }
 
-repositories {
-    jcenter()
-}
-
 jar {
     baseName = "sd-goodweather-partytime"
 }

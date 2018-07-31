@@ -1,4 +1,4 @@
-#!/usr/bin bash
+#!/usr/bin/env bash
 #   Use this script to test if a given TCP host/port are available
 
 cmdname=$(basename $0)
@@ -136,7 +136,7 @@ if [[ "$HOST" == "" || "$PORT" == "" ]]; then
     usage
 fi
 
-TIMEOUT=${TIMEOUT:-15}
+TIMEOUT=${TIMEOUT:-60}
 STRICT=${STRICT:-0}
 CHILD=${CHILD:-0}
 QUIET=${QUIET:-0}

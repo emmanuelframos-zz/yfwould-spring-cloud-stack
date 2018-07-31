@@ -3,10 +3,6 @@ plugins {
     id "org.springframework.boot" version "1.5.14.RELEASE"
 }
 
-repositories {
-    jcenter()
-}
-
 jar {
     baseName = "ms-spotify-partytime"
 }
@@ -29,7 +25,7 @@ dependencies {
 
     /** Spring Cloud Stack **/
     def springCloudVersion = "1.4.5.RELEASE"
-    compile "org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${springCloudVersion}"
+    compile "org.springframework.cloud:spring-cloud-starter-eureka-server:${springCloudVersion}"
 
     /** Utils **/
     compile "org.apache.httpcomponents:httpclient:4.5.6"

@@ -4,6 +4,6 @@ ENV HOME=/home/ms-openweather-goodweather
 
 WORKDIR $HOME
 
-ADD yfwould-ms-openweather-goodweather/build/libs/ms-openweather-goodweather.jar ms-openweather-goodweather.jar
+ADD wait-for-it.sh wait-for-it.sh
 
-CMD ["java", "-jar", "ms-openweather-goodweather.jar"]
+ADD yfwould-ms-openweather-goodweather/build/libs/ms-openweather-goodweather.jar ms-openweather-goodweather.jar

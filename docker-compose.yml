@@ -1,27 +1,55 @@
 version: '3'
 services:
-  sd-goodweather-for-partytime:
+  sd-goodweather-partytime:
     build:
       context: .
       dockerfile: Dockerfile.SD
+    command: ["java", "-jar", "sd-goodweather-partytime.jar"]
+    ports:
+      - "8761:8761"
+    networks:
+      - spring-cloud
+
   ms-openweather-goodweather:
     build:
       context: .
       dockerfile: Dockerfile.OG
-#    depends_on:
-#      - sd-goodweather-for-partytime
-#  ms-spotify-partytime:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile.SP
-#    command: ["./wait-for-it.sh", "sd-goodweather-for-partytime:8761", "--", "java", "-jar", "ms-spotify-partytime.jar"]
-#  ms-goodweather-for-partytime:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile.GFP
-#    command: ["./wait-for-it.sh", "sd-goodweather-for-partytime:8761", "--", "java", "-jar", "ms-goodweather-for-partytime.jar"]
-#  gateway-goodweather-for-partytime:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile.GGFP
-#    command: ["./wait-for-it.sh", "sd-goodweather-for-partytime:8761", "--", "java", "-jar", "gateway-goodweather-for-partytime.jar"]
+    command: ["./wait-for-it.sh", "sd-goodweather-partytime:8761", "--", "java", "-jar", "ms-openweather-goodweather.jar"]
+    ports:
+      - "8081:8081"
+    networks:
+      - spring-cloud
+
+  ms-spotify-partytime:
+    build:
+      context: .
+      dockerfile: Dockerfile.SP
+    command: ["./wait-for-it.sh", "ms-openweather-goodweather:8081", "--", "java", "-jar", "ms-spotify-partytime.jar"]
+    ports:
+      - "8082:8082"
+    networks:
+      - spring-cloud
+
+  ms-goodweather-partytime:
+    build:
+      context: .
+      dockerfile: Dockerfile.GP
+    command: ["./wait-for-it.sh", "ms-spotify-partytime:8082", "--", "java", "-jar", "ms-goodweather-partytime.jar"]
+    ports:
+        - "8080:8080"
+    networks:
+      - spring-cloud
+
+  gateway-goodweather-partytime:
+    build:
+      context: .
+      dockerfile: Dockerfile.GGP
+    command: ["./wait-for-it.sh", "ms-goodweather-partytime:8080", "--", "java", "-jar", "gateway-goodweather-partytime.jar"]
+    ports:
+      - "8762:8762"
+    networks:
+    - spring-cloud
+
+networks:
+  spring-cloud:
+    driver: bridge

@@ -1,9 +1,0 @@
-FROM java:8-jdk
-
-ENV HOME=/home/gateway-goodweather-partytime
-
-WORKDIR $HOME
-
-ADD yfwould-gateway-goodweather-for-partytime/build/libs/gateway-goodweather-partytime.jar gateway-goodweather-partytime.jar
-
-ADD wait-for-it.sh wait-for-it.sh
