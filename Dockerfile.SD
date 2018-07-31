@@ -1,0 +1,9 @@
+FROM java:8-jdk
+
+ENV HOME=/home/sd-goodweather-partytime
+
+WORKDIR $HOME
+
+ADD yfwould-sd-goodweather-for-partytime/build/libs/sd-goodweather-partytime.jar sd-goodweather-partytime.jar
+
+CMD ["java", "-jar", "sd-goodweather-partytime.jar"]

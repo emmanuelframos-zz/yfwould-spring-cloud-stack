@@ -1,0 +1,9 @@
+FROM java:8-jdk
+
+ENV HOME=/home/ms-openweather-goodweather
+
+WORKDIR $HOME
+
+ADD yfwould-ms-openweather-goodweather/build/libs/ms-openweather-goodweather.jar ms-openweather-goodweather.jar
+
+CMD ["java", "-jar", "ms-openweather-goodweather.jar"]
