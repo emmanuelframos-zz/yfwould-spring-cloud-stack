@@ -42,8 +42,8 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Yfwould - Spotify Party Time Microservice")
-                .description("Yfwould - Spotify Party Time Microservice - Swagger Documentation")
+                .title("Yfwould - Open Weather Good Weather Microservice")
+                .description("Yfwould - Open Weather Good Weather Microservice - Swagger Documentation")
                 .version("1.0")
                 .contact(new Contact("Yfwould", "", ""))
                 .build();

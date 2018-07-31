@@ -13,9 +13,12 @@ security:
 eureka:
   instance:
     preferIpAddress: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
     registerWithEureka: true
     fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://sd-goodweather-partytime:8761/eureka
 
 hystrix.command.default:
   execution:

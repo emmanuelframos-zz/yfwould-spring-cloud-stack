@@ -20,7 +20,10 @@ openweather:
 
 eureka:
   instance:
-    instance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    serviceUrl:
+      defaultZone: http://sd-goodweather-partytime:8761/eureka
 
 logging.level:
   com.netflix.eureka: OFF
