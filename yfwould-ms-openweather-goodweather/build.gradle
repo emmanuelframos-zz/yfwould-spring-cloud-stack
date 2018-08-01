@@ -1,5 +1,4 @@
 plugins {
-    id "java"
     id "org.springframework.boot" version "1.5.14.RELEASE"
 }
 
@@ -17,6 +16,8 @@ configurations {
 }
 
 dependencies {
+
+    compile project(":yfwould-commons-rest")
 
     /** Spring Boot Stack **/
     def springBootVersion = '1.5.14.RELEASE'

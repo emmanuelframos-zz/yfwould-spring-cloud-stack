@@ -3,7 +3,8 @@ package com.partytime.integration.service;
 import com.partytime.config.SpotifyWebConfig;
 import com.partytime.integration.builder.DefaultPlaylistBuilder;
 import com.partytime.integration.dto.playlistTracks.SpotifyPlaylistDTO;
-import com.partytime.rest.UnderratedRestClient;
+import com.partytime.integration.handler.ResponseHandler;
+import com.yfwould.rest.UnderratedRestClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -17,6 +18,9 @@ public class SpotifyWebIntegrationService {
     @Autowired
     private SpotifyWebConfig spotifyConfig;
 
+    @Autowired
+    private ResponseHandler responseHandler;
+
     public SpotifyPlaylistDTO findPlaylistById(String token, String playlistId){
         ResponseEntity<SpotifyPlaylistDTO> response = UnderratedRestClient.build()
                 .addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString())
@@ -28,7 +32,8 @@ public class SpotifyWebIntegrationService {
                 .method(HttpMethod.GET)
                 .execute(SpotifyPlaylistDTO.class);
 
-        return response.getBody();
+
+        return responseHandler.handleResponse(response);
     }
 
     public SpotifyPlaylistDTO findDefaultPlaylist() {

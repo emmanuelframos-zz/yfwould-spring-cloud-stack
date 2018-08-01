@@ -1,6 +1,8 @@
-package com.goodweather.rest;
+package com.yfwould.rest;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -8,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -18,7 +22,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-public class RestClient<E> {
+/** Pay attention on code below **/
+public final class UnderratedRestClient<E> {
+
+    private Logger logger = LoggerFactory.getLogger(UnderratedRestClient.class);
 
     private String baseUrl;
 
@@ -38,7 +45,7 @@ public class RestClient<E> {
 
     private Collection<HttpMessageConverter> messageConverters;
 
-    private RestClient(){
+    private UnderratedRestClient(){
         this.headers = new HttpHeaders();
         this.baseUrl = StringUtils.EMPTY;
         this.resource = StringUtils.EMPTY;
@@ -47,59 +54,59 @@ public class RestClient<E> {
         this.params = new HashMap<>();
     }
 
-    public static RestClient build(){
-        return new RestClient();
+    public static UnderratedRestClient build(){
+        return new UnderratedRestClient();
     }
 
-    public RestClient baseUrl(String baseUrl) {
+    public UnderratedRestClient baseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
         return this;
     }
 
-    public RestClient method(HttpMethod method) {
+    public UnderratedRestClient method(HttpMethod method) {
         this.method = method;
         return this;
     }
 
-    public RestClient resource(String resource) {
+    public UnderratedRestClient resource(String resource) {
         this.resource = resource;
         return this;
     }
 
-    public RestClient payload(E payload) {
+    public UnderratedRestClient payload(E payload) {
         this.payload = payload;
         return this;
     }
 
-    public RestClient addHeader(String name, String value) {
+    public UnderratedRestClient addHeader(String name, String value) {
         this.headers.add(name, value);
         return this;
     }
 
-    public RestClient addParam(String name, String value) {
+    public UnderratedRestClient addParam(String name, String value) {
         this.params.put(name, value);
         return this;
     }
 
-    public RestClient addExtraParams(Map<String, String> extraParams) {
+    public UnderratedRestClient addExtraParams(Map<String, String> extraParams) {
         this.extraParams = extraParams;
         return this;
     }
 
-    public RestClient addInterceptor(ClientHttpRequestInterceptor interceptor){
+    public UnderratedRestClient addInterceptor(ClientHttpRequestInterceptor interceptor){
         this.interceptors.add(interceptor);
         return this;
     }
 
-    public RestClient addMessageConverter(HttpMessageConverter messageConverter){
+    public UnderratedRestClient addMessageConverter(HttpMessageConverter messageConverter){
         this.messageConverters.add(messageConverter);
         return this;
     }
 
     private HttpEntity getEntity(){
-        return Objects.isNull(payload )
-                ? new HttpEntity<>(headers)
-                : new HttpEntity<>(payload, headers);
+        return Objects.isNull(this.payload )
+                ? new HttpEntity<>(this.headers)
+                : new HttpEntity<>(this.payload, this.headers);
     }
     public <T> ResponseEntity<T> execute(Class<T> responseType) {
 
@@ -114,7 +121,13 @@ public class RestClient<E> {
         RestTemplate restTemplate = RestTemplateBuilder.build();
         restTemplate.getInterceptors().addAll(interceptors);
 
-        return restTemplate.exchange(requestUrl, method, entity, responseType);
+        try{
+            return restTemplate.exchange(requestUrl, method, entity, responseType);
+        }catch(RestClientException ex){
+            HttpClientErrorException exception = (HttpClientErrorException)ex;
+            logger.error(exception.getResponseBodyAsString(), exception);
+            return new ResponseEntity<>(exception.getStatusCode());
+        }
     }
 
     private String mountParamsInRequestUrl(String requestUrl) {

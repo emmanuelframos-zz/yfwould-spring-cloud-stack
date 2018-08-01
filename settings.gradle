@@ -1,4 +1,5 @@
-include 'yfwould-sd-goodweather-for-partytime',
+include 'yfwould-commons-rest',
+        'yfwould-sd-goodweather-for-partytime',
         'yfwould-gateway-goodweather-for-partytime',
         'yfwould-ms-goodweather-for-partytime',
         'yfwould-ms-spotify-partytime',

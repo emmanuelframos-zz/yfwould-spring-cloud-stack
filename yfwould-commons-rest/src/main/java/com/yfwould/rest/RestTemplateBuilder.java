@@ -1,4 +1,4 @@
-package com.partytime.rest;
+package com.yfwould.rest;
 
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.CloseableHttpClient;
