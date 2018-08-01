@@ -8,13 +8,8 @@ import java.io.Serializable;
 public class AuthResponseDTO implements Serializable {
 
     public String accessToken;
-
     public String tokenType;
-
     public String expiresIn;
-
     public String scope;
-
-
 
 }

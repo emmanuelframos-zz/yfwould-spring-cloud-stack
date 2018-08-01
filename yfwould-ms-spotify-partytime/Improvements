@@ -1,0 +1,2 @@
+- Handle specific errors from both Spotify's APIs (Authorization and Web)
+- HTTP Connection Pooling in RestTemplateBuilder

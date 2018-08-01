@@ -5,6 +5,7 @@ build/*
 .idea/*
 *.iws
 /out/
+/out/**
 .idea/
 .idea
 .idea/*.*

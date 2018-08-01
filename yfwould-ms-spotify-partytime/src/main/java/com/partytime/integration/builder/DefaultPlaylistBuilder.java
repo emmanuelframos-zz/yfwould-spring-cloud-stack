@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/** It's not my fault **/
 public final class DefaultPlaylistBuilder {
 
     private DefaultPlaylistBuilder(){}
@@ -17,14 +18,11 @@ public final class DefaultPlaylistBuilder {
     public static SpotifyPlaylistDTO buildPlaylist(){
 
         /** Artists **/
-
         Artist ironMaiden = getArtist("Iron Maiden");
         Artist metallica = getArtist("Metallica");
         Artist megadeth = getArtist("Megadeth");
 
-
         /** Tracks **/
-
         Track trackOne = getTrack(ironMaiden, "The Trooper - 1998 Remastered Version");
         trackOne.externalUrls = getExternalUrls("https://open.spotify.com/track/2pxAohyJptQWTQ5ZRWYijN");
 
@@ -43,9 +41,7 @@ public final class DefaultPlaylistBuilder {
         Track trackSix = getTrack(megadeth, "Tornado Of Souls - 2004 Digital Remaster");
         trackSix.externalUrls = getExternalUrls("https://open.spotify.com/track/4E5xVW505akJX0wcKj8Mpd");
 
-
         /** Items **/
-
         Item itemOne = new Item();
         itemOne.track = trackOne;
 
@@ -64,9 +60,7 @@ public final class DefaultPlaylistBuilder {
         Item itemSix = new Item();
         itemSix.track = trackSix;
 
-
         /** Playlist **/
-
         SpotifyPlaylistDTO spotifyPlaylistDTO = new SpotifyPlaylistDTO();
         spotifyPlaylistDTO.items = Stream
                 .of(itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix)
