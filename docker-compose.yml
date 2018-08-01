@@ -1,55 +1,55 @@
 version: '3'
 services:
-  sd-goodweather-partytime:
+  sd-goodweather-4party:
     build:
       context: .
       dockerfile: Dockerfile.SD
-    command: ["java", "-jar", "sd-goodweather-partytime.jar"]
+    command: ["java", "-jar", "sd-goodweather-4party.jar"]
     ports:
       - "8761:8761"
     networks:
-      - spring-cloud
+      - goodweather_4party_cluster
 
-  ms-openweather-goodweather:
+  ms-openweather-4party:
     build:
       context: .
       dockerfile: Dockerfile.OG
-    command: ["./wait-for-it.sh", "sd-goodweather-partytime:8761", "--", "java", "-jar", "ms-openweather-goodweather.jar"]
+    command: ["./wait-for-it.sh", "sd-goodweather-4party:8761", "--", "java", "-jar", "ms-openweather-4party.jar"]
     ports:
       - "8081:8081"
     networks:
-      - spring-cloud
+      - goodweather_4party_cluster
 
-  ms-spotify-partytime:
+  ms-spotify-4party:
     build:
       context: .
       dockerfile: Dockerfile.SP
-    command: ["./wait-for-it.sh", "ms-openweather-goodweather:8081", "--", "java", "-jar", "ms-spotify-partytime.jar"]
+    command: ["./wait-for-it.sh", "ms-openweather-4party:8081", "--", "java", "-jar", "ms-spotify-4party.jar"]
     ports:
       - "8082:8082"
     networks:
-      - spring-cloud
+      - goodweather_4party_cluster
 
-  ms-goodweather-partytime:
+  ms-goodweather-4party:
     build:
       context: .
       dockerfile: Dockerfile.GP
-    command: ["./wait-for-it.sh", "ms-spotify-partytime:8082", "--", "java", "-jar", "ms-goodweather-partytime.jar"]
+    command: ["./wait-for-it.sh", "ms-spotify-4party:8082", "--", "java", "-jar", "ms-goodweather-4party.jar"]
     ports:
         - "8080:8080"
     networks:
-      - spring-cloud
+     - goodweather_4party_cluster
 
-  gateway-goodweather-partytime:
+  gateway-goodweather-4party:
     build:
       context: .
       dockerfile: Dockerfile.GGP
-    command: ["./wait-for-it.sh", "ms-goodweather-partytime:8080", "--", "java", "-jar", "gateway-goodweather-partytime.jar"]
+    command: ["./wait-for-it.sh", "ms-goodweather-4party:8080", "--", "java", "-jar", "gateway-goodweather-4party.jar"]
     ports:
       - "8762:8762"
     networks:
-    - spring-cloud
+    - goodweather_4party_cluster
 
 networks:
-  spring-cloud:
+  goodweather_4party_cluster:
     driver: bridge

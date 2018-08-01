@@ -1,6 +1,6 @@
 include 'yfwould-commons-rest',
-        'yfwould-sd-goodweather-for-partytime',
-        'yfwould-gateway-goodweather-for-partytime',
-        'yfwould-ms-goodweather-for-partytime',
-        'yfwould-ms-spotify-partytime',
-        'yfwould-ms-openweather-goodweather'
+        'yfwould-sd-goodweather-4party',
+        'yfwould-gateway-goodweather-4party',
+        'yfwould-ms-goodweather-4party',
+        'yfwould-ms-spotify-4party',
+        'yfwould-ms-openweather-4party'

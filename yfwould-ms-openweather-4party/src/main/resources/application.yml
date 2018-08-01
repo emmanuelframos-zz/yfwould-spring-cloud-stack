@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: ms-openweather-4party
+
+server:
+  port: 8081
+
+openweather:
+  url: http://api.openweathermap.org/data/2.5
+  params:
+    apikeyKey: appid
+    apikeyValue: e098fee4b7f030ac0d899595db0b9234
+    temperatureUnityKey: units
+    temperatureUnityValue: metric
+    latKey: lat
+    longKey: lon
+    cityKey: q
+  services:
+    weather: /weather
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://sd-goodweather-4party:8761/eureka
+
+logging.level:
+  com.netflix.eureka: OFF
+  com.netflix.discovery: OFF

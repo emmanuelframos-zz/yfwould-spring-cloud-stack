@@ -1,0 +1,30 @@
+server:
+  port: 8762
+
+spring:
+  application.name: gateway-goodweather-4party
+
+management:
+  security.enabled: false
+
+security:
+  basic.enabled: false
+
+eureka:
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://sd-goodweather-4party:8761/eureka
+
+hystrix.command.default:
+  execution:
+    timeout:
+      enabled: false
+
+ribbon:
+  ReadTimeout: 100000
+  ConnectTimeout: 100000

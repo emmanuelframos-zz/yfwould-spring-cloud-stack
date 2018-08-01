@@ -1,9 +1,9 @@
 FROM java:8-jdk
 
-ENV HOME=/home/ms-openweather-goodweather
+ENV HOME=/home/ms-openweather-4party
 
 WORKDIR $HOME
 
 ADD wait-for-it.sh wait-for-it.sh
 
-ADD yfwould-ms-openweather-goodweather/build/libs/ms-openweather-goodweather.jar ms-openweather-goodweather.jar
+ADD yfwould-ms-openweather-4party/build/libs/ms-openweather-4party.jar ms-openweather-4party.jar
