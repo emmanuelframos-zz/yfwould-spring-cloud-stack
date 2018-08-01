@@ -1,14 +1,14 @@
-package com.goodweather4party.integration.partytime.service;
+package com.goodweather4party.integration.spotify.service;
 
-import com.goodweather4party.integration.partytime.dto.ExternalPlaylistDTO;
+import com.goodweather4party.integration.spotify.dto.ExternalPlaylistDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PartyTimeIntegrationService {
+public class Spotify4PartyIntegrationService {
 
     @Autowired
-    private PartyTimeClient partyTimeClient;
+    private Spotify4PartyClient partyTimeClient;
 
     public ExternalPlaylistDTO findPlaylistById(String playlistId){
         return partyTimeClient.findPlaylistById(playlistId);

@@ -1,4 +1,4 @@
-package com.goodweather4party.integration.goodweather.dto;
+package com.goodweather4party.integration.openweather.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

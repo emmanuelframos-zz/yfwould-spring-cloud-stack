@@ -1,10 +1,17 @@
 version: '3'
 services:
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'
+    networks:
+      - goodweather_4party_cluster
+
   sd-goodweather-4party:
     build:
       context: .
       dockerfile: Dockerfile.SD
-    command: ["java", "-jar", "sd-goodweather-4party.jar"]
+    command: ["./wait-for-it.sh", "redis:6379", "--", "java", "-jar", "sd-goodweather-4party.jar"]
     ports:
       - "8761:8761"
     networks:

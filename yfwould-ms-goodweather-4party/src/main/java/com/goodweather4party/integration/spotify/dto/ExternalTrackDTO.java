@@ -1,4 +1,4 @@
-package com.goodweather4party.integration.partytime.dto;
+package com.goodweather4party.integration.spotify.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

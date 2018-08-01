@@ -5,6 +5,12 @@ spring:
 server:
   port: 8080
 
+redis:
+  host: redis
+  port: 6379
+  user:
+  password:
+
 eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}

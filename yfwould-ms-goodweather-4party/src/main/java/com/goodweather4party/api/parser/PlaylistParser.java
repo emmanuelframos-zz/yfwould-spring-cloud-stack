@@ -2,7 +2,7 @@ package com.goodweather4party.api.parser;
 
 import com.goodweather4party.api.dto.PlaylistDTO;
 import com.goodweather4party.api.dto.TrackDTO;
-import com.goodweather4party.integration.partytime.dto.ExternalPlaylistDTO;
+import com.goodweather4party.integration.spotify.dto.ExternalPlaylistDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;

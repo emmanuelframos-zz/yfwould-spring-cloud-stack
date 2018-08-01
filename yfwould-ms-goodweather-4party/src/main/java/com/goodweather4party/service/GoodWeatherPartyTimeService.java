@@ -4,10 +4,10 @@ import com.goodweather4party.api.dto.PlaylistDTO;
 import com.goodweather4party.api.dto.PlaylistFilterDTO;
 import com.goodweather4party.api.parser.PlaylistParser;
 import com.goodweather4party.api.validator.PlaylistFilterValidator;
-import com.goodweather4party.integration.goodweather.dto.ExternalWeatherDTO;
-import com.goodweather4party.integration.goodweather.service.GoodWeatherIntegrationService;
-import com.goodweather4party.integration.partytime.dto.ExternalPlaylistDTO;
-import com.goodweather4party.integration.partytime.service.PartyTimeIntegrationService;
+import com.goodweather4party.integration.openweather.dto.ExternalWeatherDTO;
+import com.goodweather4party.integration.openweather.service.OpenWeather4PartyIntegrationService;
+import com.goodweather4party.integration.spotify.dto.ExternalPlaylistDTO;
+import com.goodweather4party.integration.spotify.service.Spotify4PartyIntegrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +15,10 @@ import org.springframework.stereotype.Service;
 public class GoodWeatherPartyTimeService {
 
     @Autowired
-    private GoodWeatherIntegrationService goodWeatherIntegrationService;
+    private OpenWeather4PartyIntegrationService openWeather4PartyIntegrationService;
 
     @Autowired
-    private PartyTimeIntegrationService partyTimeIntegrationService;
+    private Spotify4PartyIntegrationService spotify4PartyIntegrationService;
 
     @Autowired
     private PlaylistSelectorService playlistSelectorService;
@@ -33,11 +33,11 @@ public class GoodWeatherPartyTimeService {
 
         playlistFilterValidator.validate(playlistFilterDTO);
 
-        ExternalWeatherDTO externalWeatherDTO = this.goodWeatherIntegrationService.findWeather(playlistFilterDTO);
+        ExternalWeatherDTO externalWeatherDTO = this.openWeather4PartyIntegrationService.findWeather(playlistFilterDTO);
 
         String playlistId = playlistSelectorService.selectPlaylist(externalWeatherDTO.temperature);
 
-        ExternalPlaylistDTO externalPlaylistDTO = partyTimeIntegrationService.findPlaylistById("75xCstiSIcVdmbsxLoC92t");
+        ExternalPlaylistDTO externalPlaylistDTO = spotify4PartyIntegrationService.findPlaylistById("75xCstiSIcVdmbsxLoC92t");
 
         return playlistParser.toDomain(externalPlaylistDTO);
     }
