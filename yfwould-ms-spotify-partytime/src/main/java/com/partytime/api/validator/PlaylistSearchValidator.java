@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PartyTimeValidator {
+public class PlaylistSearchValidator {
 
     public void validatePlaylistId(String playlistId) throws BusinessException {
         if (StringUtils.isEmpty(playlistId))

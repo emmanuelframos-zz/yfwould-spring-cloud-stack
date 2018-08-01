@@ -25,6 +25,14 @@ public class WeatherFilterDTO implements Serializable {
         return !Objects.isNull(this.longitude);
     }
 
+    public boolean hasLatitudeAndLogitude(){
+        return this.hasLatitude() && this.hasLongitude();
+    }
+
+    public boolean hasNoParams(){
+        return !this.hasLatitude() && !this.hasLongitude() && !this.hasCityName();
+    }
+
     public void setCityName(String cityName) {
         this.cityName = cityName;
     }

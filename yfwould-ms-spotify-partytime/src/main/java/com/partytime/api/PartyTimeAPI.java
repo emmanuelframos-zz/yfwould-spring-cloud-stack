@@ -2,7 +2,6 @@ package com.partytime.api;
 
 import com.partytime.api.dto.AuthResponseDTO;
 import com.partytime.api.dto.PlaylistDTO;
-import com.partytime.api.validator.PartyTimeValidator;
 import com.partytime.exception.BusinessException;
 import com.partytime.service.PartyTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class PartyTimeAPI {
 
     @Autowired
-    private PartyTimeValidator partyTimeValidator;
-
-    @Autowired
     private PartyTimeService partyTimeService;
 
     @GetMapping("/authenticate")
@@ -29,9 +25,6 @@ public class PartyTimeAPI {
 
     @GetMapping("/playlist/{id}")
     public PlaylistDTO findPlaylistById(@PathVariable("id") String playlistId) throws BusinessException {
-
-        partyTimeValidator.validatePlaylistId(playlistId);
-
         return partyTimeService.findPlaylistById(playlistId);
     }
 

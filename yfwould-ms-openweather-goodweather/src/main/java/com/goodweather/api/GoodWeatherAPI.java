@@ -2,6 +2,7 @@ package com.goodweather.api;
 
 import com.goodweather.api.dto.WeatherDTO;
 import com.goodweather.api.dto.WeatherFilterDTO;
+import com.goodweather.exception.BusinessException;
 import com.goodweather.service.GoodWeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,7 +18,7 @@ public class GoodWeatherAPI {
     private GoodWeatherService goodWeatherService;
 
     @GetMapping("/weather")
-    public WeatherDTO findWeather(WeatherFilterDTO weatherFilterDTO){
+    public WeatherDTO findWeather(WeatherFilterDTO weatherFilterDTO) throws BusinessException {
         return goodWeatherService.findWeather(weatherFilterDTO);
     }
 }

@@ -2,7 +2,11 @@ package com.goodweather.exception;
 
 public enum ExceptionMessages {
 
-    GENERAL("An error ocurred");
+    GENERIC("An error ocurred"),
+    INVALID_PARAMS("You must send params: cityName or latitude and longitude "),
+    ONLY_CITY_NAME("When you send city name, latitude or longitude should not be sent"),
+    MISS_LATITUDE("When you send longitude, latitude should be sent"),
+    MISS_LONGITUDE("When you send latitude, longitude should be sent");
 
     private String message;
 
