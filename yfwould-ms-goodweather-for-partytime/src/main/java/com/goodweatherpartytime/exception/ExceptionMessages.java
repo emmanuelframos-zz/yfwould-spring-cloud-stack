@@ -2,7 +2,7 @@ package com.goodweatherpartytime.exception;
 
 public enum ExceptionMessages {
 
-    GENERAL("An error ocurred");
+    GENERIC("An error ocurred");
 
     private String message;
 

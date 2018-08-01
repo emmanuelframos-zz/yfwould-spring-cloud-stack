@@ -1,10 +1,10 @@
 package com.goodweatherpartytime.exception;
 
-public class BusinessException extends Exception {
+public class TechnicalException extends RuntimeException {
 
     private ExceptionMessages exceptionMessage;
 
-    public BusinessException(ExceptionMessages exceptionMessage){
+    public TechnicalException(ExceptionMessages exceptionMessage){
         super(exceptionMessage.getMessage());
         this.exceptionMessage = exceptionMessage;
     }

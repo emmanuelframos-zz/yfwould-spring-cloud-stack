@@ -1,5 +1,6 @@
 package com.goodweatherpartytime.exception;
 
+import com.goodweatherpartytime.api.dto.ErrorDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -10,12 +11,21 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler({BusinessException.class})
-    public ResponseEntity handleBusinessException(BusinessException ex) {
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    public ResponseEntity<ErrorDTO> handleBusinessException(BusinessException ex) {
+        return new ResponseEntity<>(
+                ErrorDTO.build().message(ex.getExceptionMessage().getMessage()),
+                HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler({TechnicalException.class})
+    public ResponseEntity handleTechnicalException(TechnicalException ex) {
+        return new ResponseEntity<>(ErrorDTO.build().message(ex.getExceptionMessage().getMessage()),
+                HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler({Exception.class})
-    public ResponseEntity handleTechnicalException(Exception ex) {
-        return new ResponseEntity<>(ExceptionMessages.GENERAL.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    public ResponseEntity handleGenericException(Exception ex) {
+        return new ResponseEntity<>(ExceptionMessages.GENERIC.getMessage(),
+                HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
