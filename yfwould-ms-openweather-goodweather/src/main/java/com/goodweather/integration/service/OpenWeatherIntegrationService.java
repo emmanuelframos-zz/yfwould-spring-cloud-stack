@@ -2,6 +2,7 @@ package com.goodweather.integration.service;
 
 import com.goodweather.config.OpenWeaterConfig;
 import com.goodweather.integration.dto.weather.OpenWeatherDTO;
+import com.goodweather.integration.handler.ResponseHandler;
 import com.yfwould.rest.UnderratedRestClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -18,6 +19,9 @@ public class OpenWeatherIntegrationService {
     @Autowired
     private OpenWeaterConfig openWeaterConfig;
 
+    @Autowired
+    private ResponseHandler responseHandler;
+
     public OpenWeatherDTO findWeather(Map<String, String> params){
         ResponseEntity<OpenWeatherDTO> response = UnderratedRestClient.build()
                 .addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString())
@@ -29,6 +33,6 @@ public class OpenWeatherIntegrationService {
                 .addExtraParams(params)
                 .execute(OpenWeatherDTO.class);
 
-        return response.getBody();
+        return responseHandler.handleResponse(response);
     }
 }
