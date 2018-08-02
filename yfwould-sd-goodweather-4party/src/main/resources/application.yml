@@ -8,3 +8,4 @@ eureka:
   server:
     waitTimeInMsWhenSyncEmpty: 0
     enableSelfPreservation: false
+    response-cache-update-interval-ms: 5000

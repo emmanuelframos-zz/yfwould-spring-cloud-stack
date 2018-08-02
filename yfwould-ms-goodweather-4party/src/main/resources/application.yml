@@ -10,6 +10,14 @@ redis:
   port: 6379
   user:
   password:
+  timeout: 60
+  maxTotal: 128
+  maxIdle: 128
+  minIdle: 16
+  minEvictable: 60
+  timeBetween: 30
+  numTests: 3
+  playlistKey: PLAYLIST_
 
 eureka:
   instance:

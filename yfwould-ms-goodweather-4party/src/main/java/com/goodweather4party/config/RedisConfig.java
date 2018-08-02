@@ -21,23 +21,51 @@ public class RedisConfig {
     @Value("${redis.password}")
     private String redisPassword;
 
+    @Value("${redis.timeout}")
+    private Integer timeout;
+
+    @Value("${redis.maxTotal}")
+    private Integer maxTotal;
+
+    @Value("${redis.maxIdle}")
+    private Integer maxIdle;
+
+    @Value("${redis.minIdle}")
+    private Integer minIdle;
+
+    @Value("${redis.minEvictable}")
+    private Integer minEvictable;
+
+    @Value("${redis.timeBetween}")
+    private Integer timeBetween;
+
+    @Value("${redis.numTests}")
+    private Integer numTests;
+
+    @Value("${redis.playlistKey}")
+    private String playlistKey;
+
     private JedisPoolConfig buildPoolConfig() {
         JedisPoolConfig poolConfig = new JedisPoolConfig();
-        poolConfig.setMaxTotal(128);
-        poolConfig.setMaxIdle(128);
-        poolConfig.setMinIdle(16);
+        poolConfig.setMaxTotal(maxTotal);
+        poolConfig.setMaxIdle(maxIdle);
+        poolConfig.setMinIdle(minIdle);
         poolConfig.setTestOnBorrow(true);
         poolConfig.setTestOnReturn(true);
         poolConfig.setTestWhileIdle(true);
-        poolConfig.setMinEvictableIdleTimeMillis(Duration.ofSeconds(60).toMillis());
-        poolConfig.setTimeBetweenEvictionRunsMillis(Duration.ofSeconds(30).toMillis());
-        poolConfig.setNumTestsPerEvictionRun(3);
+        poolConfig.setMinEvictableIdleTimeMillis(Duration.ofSeconds(minEvictable).toMillis());
+        poolConfig.setTimeBetweenEvictionRunsMillis(Duration.ofSeconds(timeBetween).toMillis());
+        poolConfig.setNumTestsPerEvictionRun(numTests);
         poolConfig.setBlockWhenExhausted(true);
         return poolConfig;
     }
 
     @Bean
     public JedisPool jedisPool() {
-        return new JedisPool(buildPoolConfig(), redisHost, redisPort, 60, StringUtils.isEmpty(redisPassword) ? null : redisPassword);
+        return new JedisPool(buildPoolConfig(), redisHost, redisPort, timeout, StringUtils.isEmpty(redisPassword) ? null : redisPassword);
+    }
+
+    public String getPlaylistKey() {
+        return playlistKey;
     }
 }
