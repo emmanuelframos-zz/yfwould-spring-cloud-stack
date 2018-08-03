@@ -27,6 +27,10 @@ eureka:
     serviceUrl:
       defaultZone: http://sd-goodweather-4party:8761/eureka
 
+hystrix:
+  command:
+    fallback_weather.execution.isolation.thread.timeoutInMilliseconds: 15000
+
 ribbon:
   ReadTimeout: 100000
   ConnectTimeout: 100000
