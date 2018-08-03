@@ -1,7 +1,7 @@
-package com.partytime.integration.handler;
+package com.spotify4party.integration.handler;
 
-import com.partytime.exception.ExceptionMessages;
-import com.partytime.exception.TechnicalException;
+import com.spotify4party.exception.ExceptionMessages;
+import com.spotify4party.exception.TechnicalException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 

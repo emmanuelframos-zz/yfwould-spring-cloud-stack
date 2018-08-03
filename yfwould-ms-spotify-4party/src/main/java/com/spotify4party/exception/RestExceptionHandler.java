@@ -1,6 +1,6 @@
-package com.partytime.exception;
+package com.spotify4party.exception;
 
-import com.partytime.api.dto.ErrorDTO;
+import com.spotify4party.api.dto.ErrorDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

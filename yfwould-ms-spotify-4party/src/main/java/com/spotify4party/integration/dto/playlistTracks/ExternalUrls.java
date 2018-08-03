@@ -1,5 +1,5 @@
 
-package com.partytime.integration.dto.playlistTracks;
+package com.spotify4party.integration.dto.playlistTracks;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

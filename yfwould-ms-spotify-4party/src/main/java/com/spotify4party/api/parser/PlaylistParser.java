@@ -1,8 +1,8 @@
-package com.partytime.api.parser;
+package com.spotify4party.api.parser;
 
-import com.partytime.api.dto.PlaylistDTO;
-import com.partytime.api.dto.TrackDTO;
-import com.partytime.integration.dto.playlistTracks.SpotifyPlaylistDTO;
+import com.spotify4party.api.dto.PlaylistDTO;
+import com.spotify4party.api.dto.TrackDTO;
+import com.spotify4party.integration.dto.playlistTracks.SpotifyPlaylistDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;

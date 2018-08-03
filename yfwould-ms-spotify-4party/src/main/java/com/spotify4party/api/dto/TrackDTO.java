@@ -1,4 +1,4 @@
-package com.partytime.api.dto;
+package com.spotify4party.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

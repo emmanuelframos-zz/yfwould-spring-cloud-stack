@@ -1,7 +1,7 @@
-package com.partytime.api.parser;
+package com.spotify4party.api.parser;
 
-import com.partytime.api.dto.AuthResponseDTO;
-import com.partytime.integration.dto.authenticate.SpotifyAuthtResponseDTO;
+import com.spotify4party.api.dto.AuthResponseDTO;
+import com.spotify4party.integration.dto.authenticate.SpotifyAuthtResponseDTO;
 import org.springframework.stereotype.Component;
 
 @Component

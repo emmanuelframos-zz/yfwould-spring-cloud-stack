@@ -1,4 +1,4 @@
-package com.partytime.config;
+package com.spotify4party.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

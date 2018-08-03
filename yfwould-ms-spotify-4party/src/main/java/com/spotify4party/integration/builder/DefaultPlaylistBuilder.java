@@ -1,10 +1,10 @@
-package com.partytime.integration.builder;
+package com.spotify4party.integration.builder;
 
-import com.partytime.integration.dto.playlistTracks.Artist;
-import com.partytime.integration.dto.playlistTracks.ExternalUrls;
-import com.partytime.integration.dto.playlistTracks.Item;
-import com.partytime.integration.dto.playlistTracks.SpotifyPlaylistDTO;
-import com.partytime.integration.dto.playlistTracks.Track;
+import com.spotify4party.integration.dto.playlistTracks.Artist;
+import com.spotify4party.integration.dto.playlistTracks.ExternalUrls;
+import com.spotify4party.integration.dto.playlistTracks.Item;
+import com.spotify4party.integration.dto.playlistTracks.SpotifyPlaylistDTO;
+import com.spotify4party.integration.dto.playlistTracks.Track;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

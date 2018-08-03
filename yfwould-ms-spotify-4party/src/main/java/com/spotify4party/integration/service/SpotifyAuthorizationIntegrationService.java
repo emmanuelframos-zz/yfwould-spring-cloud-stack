@@ -1,7 +1,7 @@
-package com.partytime.integration.service;
+package com.spotify4party.integration.service;
 
-import com.partytime.config.SpotifyAuthorizationConfig;
-import com.partytime.integration.dto.authenticate.SpotifyAuthtResponseDTO;
+import com.spotify4party.config.SpotifyAuthorizationConfig;
+import com.spotify4party.integration.dto.authenticate.SpotifyAuthtResponseDTO;
 import com.yfwould.rest.UnderratedRestClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -12,7 +12,7 @@ import org.springframework.http.client.support.BasicAuthorizationInterceptor;
 import org.springframework.http.converter.FormHttpMessageConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
-import com.partytime.integration.handler.ResponseHandler;
+import com.spotify4party.integration.handler.ResponseHandler;
 
 @Service
 public class SpotifyAuthorizationIntegrationService {

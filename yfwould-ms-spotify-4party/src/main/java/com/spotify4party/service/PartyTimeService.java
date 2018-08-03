@@ -1,15 +1,15 @@
-package com.partytime.service;
+package com.spotify4party.service;
 
-import com.partytime.api.dto.AuthResponseDTO;
-import com.partytime.api.dto.PlaylistDTO;
-import com.partytime.api.parser.AuthResponseParser;
-import com.partytime.api.parser.PlaylistParser;
-import com.partytime.api.validator.PlaylistSearchValidator;
-import com.partytime.exception.BusinessException;
-import com.partytime.integration.dto.authenticate.SpotifyAuthtResponseDTO;
-import com.partytime.integration.dto.playlistTracks.SpotifyPlaylistDTO;
-import com.partytime.integration.service.SpotifyAuthorizationIntegrationService;
-import com.partytime.integration.service.SpotifyWebIntegrationService;
+import com.spotify4party.api.dto.AuthResponseDTO;
+import com.spotify4party.api.dto.PlaylistDTO;
+import com.spotify4party.api.parser.AuthResponseParser;
+import com.spotify4party.api.parser.PlaylistParser;
+import com.spotify4party.api.validator.PlaylistSearchValidator;
+import com.spotify4party.exception.BusinessException;
+import com.spotify4party.integration.dto.authenticate.SpotifyAuthtResponseDTO;
+import com.spotify4party.integration.dto.playlistTracks.SpotifyPlaylistDTO;
+import com.spotify4party.integration.service.SpotifyAuthorizationIntegrationService;
+import com.spotify4party.integration.service.SpotifyWebIntegrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

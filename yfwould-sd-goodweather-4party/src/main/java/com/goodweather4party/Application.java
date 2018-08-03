@@ -1,4 +1,4 @@
-package com.goodweatherpartytime;
+package com.goodweather4party;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

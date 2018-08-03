@@ -1,4 +1,4 @@
-package com.partytime.exception;
+package com.spotify4party.exception;
 
 public enum ExceptionMessages {
 

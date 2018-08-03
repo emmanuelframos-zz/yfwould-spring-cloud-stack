@@ -1,4 +1,4 @@
-package com.partytime.integration.dto.authenticate;
+package com.spotify4party.integration.dto.authenticate;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

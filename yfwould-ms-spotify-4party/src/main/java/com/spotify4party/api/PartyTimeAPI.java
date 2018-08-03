@@ -1,9 +1,9 @@
-package com.partytime.api;
+package com.spotify4party.api;
 
-import com.partytime.api.dto.AuthResponseDTO;
-import com.partytime.api.dto.PlaylistDTO;
-import com.partytime.exception.BusinessException;
-import com.partytime.service.PartyTimeService;
+import com.spotify4party.api.dto.AuthResponseDTO;
+import com.spotify4party.api.dto.PlaylistDTO;
+import com.spotify4party.exception.BusinessException;
+import com.spotify4party.service.spotify4partyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

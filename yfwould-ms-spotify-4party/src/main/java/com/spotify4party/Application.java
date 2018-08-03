@@ -1,4 +1,4 @@
-package com.partytime;
+package com.spotify4party;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

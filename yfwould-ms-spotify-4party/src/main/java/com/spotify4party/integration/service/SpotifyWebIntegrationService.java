@@ -1,9 +1,9 @@
-package com.partytime.integration.service;
+package com.spotify4party.integration.service;
 
-import com.partytime.config.SpotifyWebConfig;
-import com.partytime.integration.builder.DefaultPlaylistBuilder;
-import com.partytime.integration.dto.playlistTracks.SpotifyPlaylistDTO;
-import com.partytime.integration.handler.ResponseHandler;
+import com.spotify4party.config.SpotifyWebConfig;
+import com.spotify4party.integration.builder.DefaultPlaylistBuilder;
+import com.spotify4party.integration.dto.playlistTracks.SpotifyPlaylistDTO;
+import com.spotify4party.integration.handler.ResponseHandler;
 import com.yfwould.rest.UnderratedRestClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
