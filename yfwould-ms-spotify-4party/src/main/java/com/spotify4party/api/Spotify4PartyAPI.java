@@ -1,6 +1,5 @@
 package com.spotify4party.api;
 
-import com.spotify4party.api.dto.AuthResponseDTO;
 import com.spotify4party.api.dto.PlaylistDTO;
 import com.spotify4party.exception.BusinessException;
 import com.spotify4party.service.Spotify4PartyService;
@@ -17,11 +16,6 @@ public class Spotify4PartyAPI {
 
     @Autowired
     private Spotify4PartyService spotify4PartyService;
-
-    @GetMapping("/authenticate")
-    public AuthResponseDTO authenticate() throws BusinessException {
-        return spotify4PartyService.authenticate();
-    }
 
     @GetMapping("/playlist/{id}")
     public PlaylistDTO findPlaylistById(@PathVariable("id") String playlistId) throws BusinessException {

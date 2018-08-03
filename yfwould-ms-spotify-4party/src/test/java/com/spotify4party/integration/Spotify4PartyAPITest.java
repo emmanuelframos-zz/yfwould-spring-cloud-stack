@@ -28,17 +28,6 @@ public class Spotify4PartyAPITest {
     private Spotify4PartyService spotify4PartyService;
 
     @Test
-    public void testAuthenticateOk() throws BusinessException {
-
-        AuthResponseDTO authResponseDTO = spotify4PartyAPI.authenticate();
-
-        assertThat(authResponseDTO.accessToken, is(notNullValue()));
-
-        assertThat(authResponseDTO.accessToken, not(isEmptyString()));
-
-    }
-
-    @Test
     public void testPlaylistOk() throws BusinessException {
 
         PlaylistDTO playlistDTO = spotify4PartyService.findPlaylistById("5hSEnhVI5wA7d2rSpHl32v");

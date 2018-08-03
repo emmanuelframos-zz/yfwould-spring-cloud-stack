@@ -40,6 +40,7 @@ public class Spotify4PartyService {
     @Autowired
     private AuthenticationValidator authenticationValidator;
 
+    @HystrixCommand(commandKey = "fallback_authenticate", fallbackMethod = "findDefaultPlaylist")
     public AuthResponseDTO authenticate() throws BusinessException {
 
         logger.info("Authenticate on Spotify.");

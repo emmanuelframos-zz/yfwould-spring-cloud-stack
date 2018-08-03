@@ -32,7 +32,8 @@ eureka:
 
 hystrix:
   command:
-    fallback_playlist.execution.isolation.thread.timeoutInMilliseconds: 10000
+    fallback_authenticate.execution.isolation.thread.timeoutInMilliseconds: 8000
+    fallback_playlist.execution.isolation.thread.timeoutInMilliseconds: 8000
 
 logging.level:
   com.netflix.eureka: OFF
