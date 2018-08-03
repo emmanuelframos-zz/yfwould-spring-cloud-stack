@@ -32,7 +32,6 @@ public class SpotifyWebIntegrationService {
                 .method(HttpMethod.GET)
                 .execute(SpotifyPlaylistDTO.class);
 
-
         return responseHandler.handleResponse(response);
     }
 
