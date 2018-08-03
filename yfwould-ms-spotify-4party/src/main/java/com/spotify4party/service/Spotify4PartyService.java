@@ -5,6 +5,7 @@ import com.spotify4party.api.dto.AuthResponseDTO;
 import com.spotify4party.api.dto.PlaylistDTO;
 import com.spotify4party.api.parser.AuthResponseParser;
 import com.spotify4party.api.parser.PlaylistParser;
+import com.spotify4party.api.validator.AuthenticationValidator;
 import com.spotify4party.api.validator.PlaylistSearchValidator;
 import com.spotify4party.exception.BusinessException;
 import com.spotify4party.integration.dto.authenticate.SpotifyAuthtResponseDTO;
@@ -36,7 +37,10 @@ public class Spotify4PartyService {
     @Autowired
     private PlaylistSearchValidator playlistSearchValidator;
 
-    public AuthResponseDTO authenticate() {
+    @Autowired
+    private AuthenticationValidator authenticationValidator;
+
+    public AuthResponseDTO authenticate() throws BusinessException {
 
         logger.info("Authenticate on Spotify.");
 
@@ -44,10 +48,14 @@ public class Spotify4PartyService {
 
         logger.info("Converting authorization to domain.");
 
-        return authResponseParser.toDomain(spotifyAuthtResponseDTO);
+        AuthResponseDTO authResponseDTO = authResponseParser.toDomain(spotifyAuthtResponseDTO);
+
+        authenticationValidator.validateAuthentication(authResponseDTO);
+
+        return authResponseDTO;
     }
 
-    @HystrixCommand(fallbackMethod = "findDefaultPlaylist")
+    @HystrixCommand(commandKey = "fallback_playlist", fallbackMethod = "findDefaultPlaylist")
     public PlaylistDTO findPlaylistById(String playlistId) throws BusinessException {
 
         logger.info("Validating playlist id.");
@@ -65,7 +73,7 @@ public class Spotify4PartyService {
         return playlistParser.toDomain(spotifyPlaylistDTO);
     }
 
-    public PlaylistDTO findDefaultPlaylist() {
+    private PlaylistDTO findDefaultPlaylist(String playlistId) {
 
         logger.info("Getting default playlist.");
 
