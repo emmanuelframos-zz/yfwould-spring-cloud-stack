@@ -7,6 +7,8 @@ This application was built on Spring Cloud Netflix stack and it is composed by f
 
 ### Architecture
 
+![](https://image.ibb.co/cHpGoz/architecture_diagram.png)
+
 <br>
 
 ### Good Weater4Party Service Discovery (Eureka)
@@ -59,7 +61,7 @@ Rest documentation for microservice, it can be accesed on:
 
 <br>
 
-### Good Weather4Party - Spotify Microservice (Spring Boot)
+### Good Weather4Pa1rty - Spotify Microservice (Spring Boot)
 Microservice on top of Spring Boot, it finds playlists based on Spotify's account. Uses Hystrix as Circuit Breaker, this makes the application resilient and fault tolerance.
 
 #### Hystrix Dashboard 
