@@ -61,7 +61,7 @@ Rest documentation for microservice, it can be accesed on:
 
 <br>
 
-### Good Weather4Pa1rty - Spotify Microservice (Spring Boot)
+### Good Weather4Party - Spotify Microservice (Spring Boot)
 Microservice on top of Spring Boot, it finds playlists based on Spotify's account. Uses Hystrix as Circuit Breaker, this makes the application resilient and fault tolerance.
 
 #### Hystrix Dashboard 
@@ -113,6 +113,6 @@ curl http://localhost:8762/ms-goodweather-4party/api/v1/playlist?latitude=-25&lo
 
 
 ## License
-Apache License, Version 2.0, January 2004
+Apache License, Version 2.0, January 2004.
 
 
