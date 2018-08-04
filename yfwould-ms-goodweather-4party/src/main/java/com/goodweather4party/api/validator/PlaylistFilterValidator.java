@@ -5,10 +5,15 @@ import com.goodweather4party.exception.BusinessException;
 import com.goodweather4party.exception.ExceptionMessages;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 @Component
 public class PlaylistFilterValidator {
 
     public void validate(PlaylistFilterDTO filter) throws BusinessException {
+
+        if (Objects.isNull(filter))
+            throw new BusinessException(ExceptionMessages.INVALID_PLAYLIST);
 
         if (filter.hasNoParams())
             throw new BusinessException(ExceptionMessages.INVALID_PARAMS);

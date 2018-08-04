@@ -59,17 +59,17 @@ public class Spotify4PartyService {
     @HystrixCommand(commandKey = "fallback_playlist", fallbackMethod = "findDefaultPlaylist")
     public PlaylistDTO findPlaylistById(String playlistId) throws BusinessException {
 
-        logger.info("Validating playlist id.");
+        logger.info("Validating playlist id {}.", playlistId);
 
         playlistSearchValidator.validatePlaylistId(playlistId);
 
         AuthResponseDTO authResponseDTO = this.authenticate();
 
-        logger.info("Searching playlist on Spotify.");
+        logger.info("Searching playlist {} on Spotify.", playlistId);
 
         SpotifyPlaylistDTO spotifyPlaylistDTO = spotifyWebIntegrationService.findPlaylistById(authResponseDTO.accessToken, playlistId);
 
-        logger.info("Converting playlist to domain.");
+        logger.info("Converting playlist {} to domain.", playlistId);
 
         return playlistParser.toDomain(spotifyPlaylistDTO);
     }

@@ -40,15 +40,15 @@ public class OpenWeather4PartyService {
     @HystrixCommand(commandKey = "fallback_weather", fallbackMethod = "findDefaultWeather")
     public WeatherDTO findWeather(WeatherFilterDTO weatherFilterDTO) throws BusinessException {
 
-        logger.info("Validating weather filter.");
+        logger.info("Validating weather filter {}.", weatherFilterDTO);
 
         weatherFilterValidator.validate(weatherFilterDTO);
 
-        logger.info("Building search params.");
+        logger.info("Building search params for filter {}.", weatherFilterDTO);
 
         Map<String, String> params = weatherSearchParamsBuilder.buildParams(weatherFilterDTO);
 
-        logger.info("Searching weather on Open Weather.");
+        logger.info("Searching weather on Open Weather with filter {}.", weatherFilterDTO);
 
         OpenWeatherDTO weatherDTO = openWeatherIntegrationService.findWeather(params);
 

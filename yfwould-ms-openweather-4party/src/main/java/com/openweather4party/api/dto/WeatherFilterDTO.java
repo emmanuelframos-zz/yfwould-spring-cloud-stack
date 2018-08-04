@@ -44,4 +44,8 @@ public class WeatherFilterDTO implements Serializable {
     public void setLongitude(Integer longitude) {
         this.longitude = longitude;
     }
+
+    public String toString(){
+        return String.format("CityName=%s, Latitude=%d, Longitude=%d", cityName, latitude, longitude);
+    }
 }
