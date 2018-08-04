@@ -93,6 +93,12 @@ Find a playlist using geographical coordinates (latitude and longitude):
 curl http://localhost:8762/ms-goodweather-4party/api/v1/playlist?latitude=-25&longitude=-49 
 ~~~
 
+## Load Test 
+Load test performed using Apache Bench for 50 000 request having 100 concurrent. <br>
+Ubuntu 16.04
+CPU i5-7600K 16GB RAM
+![](https://image.ibb.co/ewMKae/Screenshot_from_2018_08_04_03_05_37.png)
+
 
 ## Tool Versions
 - Gradle 4.9
