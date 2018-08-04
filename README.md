@@ -7,7 +7,7 @@ This application was built on Spring Cloud Netflix stack and it is composed by f
 
 ### Architecture
 
-![](https://image.ibb.co/cHpGoz/architecture_diagram.png)
+![](https://image.ibb.co/dO3OJz/architecture_diagram_1.png)
 
 <br>
 
