@@ -43,7 +43,7 @@ Rest documentation for microservice, it can be accesed on:
 <br>
 
 ### Good Weather4PArty - Open Weather Microservice (Spring Boot)
-Microservice on top of Spring Boot, it searches for your city temperature based on city name or geographical coordinates.
+Microservice on top of Spring Boot, it searches for your city temperature based on city name or geographical coordinates. Uses Hystrix as Circuit Breaker, this makes the application resilient and fault tolerance.
 
 #### Hystrix Dashboard
 It can be accesed on:
@@ -60,7 +60,7 @@ Rest documentation for microservice, it can be accesed on:
 <br>
 
 ### Good Weather4PArty - Spotify Microservice (Spring Boot)
-Microservice on top of Spring Boot, it finds playlists based on Spotify's account.
+Microservice on top of Spring Boot, it finds playlists based on Spotify's account. Uses Hystrix as Circuit Breaker, this makes the application resilient and fault tolerance.
 
 #### Hystrix Dashboard 
 It can be accesed on:
