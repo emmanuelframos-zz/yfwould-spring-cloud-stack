@@ -80,7 +80,6 @@ Rest documentation for microservice, it can be accesed on:
 1. Access application root directory
 2. Execute run-all.sh file
 
-<br>
 
 ## Usage
 Find a playlist using city name:
@@ -92,7 +91,6 @@ Find a playlist using geographical coordinates (latitude and longitude):
 curl http://localhost:8762/ms-goodweather-4party/api/v1/playlist?latitude=-25&longitude=-49 
 ~~~
 
-<br>
 
 ## Tool Versions
 - Gradle 4.9
@@ -103,7 +101,6 @@ curl http://localhost:8762/ms-goodweather-4party/api/v1/playlist?latitude=-25&lo
 - Docker Compose 1.22.0
 - Redis 4.0.10
 
-<br>
 
 ## Dependencies
 - Unix Based OS
@@ -112,7 +109,6 @@ curl http://localhost:8762/ms-goodweather-4party/api/v1/playlist?latitude=-25&lo
 - Docker >= 18.06.0
 - Docker Compose >= 1.22.0
 
-<br>
 
 ## License
 Apache License, Version 2.0, January 2004
