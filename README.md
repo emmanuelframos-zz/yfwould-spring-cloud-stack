@@ -1,5 +1,5 @@
-# Yfwould - Good Weather4PArty
-Good Weather4PArty is an application for playlist suggestion based on your city for your party time!
+# Yfwould - Good Weather4Party
+Good Weather4Party is an application for playlist suggestion based on your city for your party time!
 
 This application was built on Spring Cloud Netflix stack and it is composed by following applications: Eureka Service Discovery, Zuul Gateway, Good Weather4Party Microservice, Open Weather Integration Microservice and Spotify Integration Microservice.
 
@@ -9,7 +9,7 @@ This application was built on Spring Cloud Netflix stack and it is composed by f
 
 <br>
 
-### Good Weater4PArty Service Discovery (Eureka)
+### Good Weater4Party Service Discovery (Eureka)
 Service Discovery Application built on Spring Cloud Eureka. Eureka instances can be registered and clients can discover the instances using Spring-managed beans. An Eureka server can be created with declarative Java configuration.
 #### Eureka Dashboard
 It can be accessed on:
@@ -17,7 +17,7 @@ It can be accessed on:
 
 <br>
 
-### Good Time4PArty Gateway (Zuul)
+### Good Time4Party Gateway (Zuul)
 Zuul is an edge service that provides dynamic routing, monitoring, resiliency, security, and more. Automatic regsitration of Zuul filters, and a simple convention over configuration approach to reverse proxy creation.
 
 #### Zuul Routes
@@ -26,7 +26,7 @@ It can be accessed on:
 
 <br>
 
-### Good Weather4PArty Microservice (Spring Boot)
+### Good Weather4Party Microservice (Spring Boot)
 Microservice on top of Spring Boot, it searches for your city temperature and provides you a best playlist for the moment. Uses Hystrix as Circuit Breaker, this makes the application resilient and fault tolerance. Redis is used to avoid unnecessary calls to providers.
 #### Hystrix Dashboard
 It can be accesed on:
@@ -42,7 +42,7 @@ Rest documentation for microservice, it can be accesed on:
 
 <br>
 
-### Good Weather4PArty - Open Weather Microservice (Spring Boot)
+### Good Weather4Party - Open Weather Microservice (Spring Boot)
 Microservice on top of Spring Boot, it searches for your city temperature based on city name or geographical coordinates. Uses Hystrix as Circuit Breaker, this makes the application resilient and fault tolerance.
 
 #### Hystrix Dashboard
@@ -59,7 +59,7 @@ Rest documentation for microservice, it can be accesed on:
 
 <br>
 
-### Good Weather4PArty - Spotify Microservice (Spring Boot)
+### Good Weather4Party - Spotify Microservice (Spring Boot)
 Microservice on top of Spring Boot, it finds playlists based on Spotify's account. Uses Hystrix as Circuit Breaker, this makes the application resilient and fault tolerance.
 
 #### Hystrix Dashboard 
