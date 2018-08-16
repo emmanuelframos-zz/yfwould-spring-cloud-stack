@@ -2,7 +2,6 @@ package com.goodweather4party.integration;
 
 import com.goodweather4party.Application;
 import com.goodweather4party.api.GoodWeather4PartyAPI;
-import com.goodweather4party.api.dto.PlaylistFilterDTO;
 import com.goodweather4party.domain.TrackStyles;
 import com.goodweather4party.exception.BusinessException;
 import com.goodweather4party.integration.openweather.dto.ExternalWeatherDTO;
@@ -51,8 +50,6 @@ public class GoodWeather4PartyAPITest {
 
     @Test
     public void testSuggestPlaylist() throws BusinessException {
-        PlaylistFilterDTO playlistFilterDTO = new PlaylistFilterDTO();
-        playlistFilterDTO.cityName = "Curitiba";
 
         ExternalWeatherDTO externalWeatherDTO = new ExternalWeatherDTO();
         externalWeatherDTO.temperature = 10;
@@ -69,6 +66,6 @@ public class GoodWeather4PartyAPITest {
         externalPlaylistDTO.tracks = Arrays.asList(externalTrackDTO);
         when(spotify4PartyIntegrationService.findPlaylistById(any())).thenReturn(externalPlaylistDTO);
 
-        goodWeather4PartyAPI.suggestPlaylist(playlistFilterDTO);
+        goodWeather4PartyAPI.suggestPlaylistByCity("Curitiba");
     }
 }

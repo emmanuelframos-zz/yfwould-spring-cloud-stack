@@ -1,7 +1,7 @@
 package com.goodweather4party.service;
 
 import com.goodweather4party.api.dto.PlaylistDTO;
-import com.goodweather4party.api.dto.PlaylistFilterDTO;
+import com.goodweather4party.api.dto.PlaylistFilter;
 import com.goodweather4party.api.parser.PlaylistParser;
 import com.goodweather4party.api.validator.PlaylistFilterValidator;
 import com.goodweather4party.builder.PlaylistBuilder;
@@ -51,21 +51,21 @@ public class GoodWeather4PartyService {
     private Gson gson = new Gson();
 
     @HystrixCommand(commandKey ="fallback_suggestPlaylist", fallbackMethod = "suggestDefaultPlaylist")
-    public PlaylistDTO suggestPlaylist(PlaylistFilterDTO playlistFilterDTO) throws BusinessException {
+    public PlaylistDTO suggestPlaylist(PlaylistFilter playlistFilter) throws BusinessException {
 
-        logger.info("Validating playlist filter {}.", playlistFilterDTO);
+        logger.info("Validating playlist filter {}.", playlistFilter);
 
-        playlistFilterValidator.validate(playlistFilterDTO);
+        playlistFilterValidator.validate(playlistFilter);
 
-        logger.info("Searching weather with filter {}.", playlistFilterDTO);
+        logger.info("Searching weather with filter {}.", playlistFilter);
 
-        ExternalWeatherDTO externalWeatherDTO = this.openWeather4PartyIntegrationService.findWeather(playlistFilterDTO);
+        ExternalWeatherDTO externalWeatherDTO = this.openWeather4PartyIntegrationService.findWeather(playlistFilter);
 
-        logger.info("Selecting playlist with filter {}.", playlistFilterDTO);
+        logger.info("Selecting playlist with filter {}.", playlistFilter);
 
         TrackStyles trackStyle = trackStyleSelector.selectPlaylist(externalWeatherDTO.temperature);
 
-        logger.info("Getting playlist with filter {}.", playlistFilterDTO);
+        logger.info("Getting playlist with filter {}.", playlistFilter);
 
         ExternalPlaylistDTO externalPlaylistDTO = this.getPlaylist(trackStyle);
 
@@ -94,7 +94,7 @@ public class GoodWeather4PartyService {
         return externalPlaylistDTO;
     }
 
-    public PlaylistDTO suggestDefaultPlaylist(PlaylistFilterDTO playlistFilterDTO) throws BusinessException {
+    public PlaylistDTO suggestDefaultPlaylist(PlaylistFilter playlistFilter) throws BusinessException {
         return PlaylistBuilder.buildPlaylist();
     }
 }

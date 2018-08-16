@@ -2,7 +2,6 @@ package com.spotify4party.integration;
 
 import com.spotify4party.Application;
 import com.spotify4party.api.Spotify4PartyAPI;
-import com.spotify4party.api.dto.AuthResponseDTO;
 import com.spotify4party.api.dto.PlaylistDTO;
 import com.spotify4party.exception.BusinessException;
 import com.spotify4party.service.Spotify4PartyService;
@@ -14,7 +13,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 
 @SpringBootTest(classes = {Application.class}, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")

@@ -1,6 +1,6 @@
 package com.goodweather4party.integration.openweather.service;
 
-import com.goodweather4party.api.dto.PlaylistFilterDTO;
+import com.goodweather4party.api.dto.PlaylistFilter;
 import com.goodweather4party.integration.openweather.dto.ExternalWeatherDTO;
 import com.goodweather4party.integration.openweather.dto.ExternalWeatherFilterDTO;
 import com.goodweather4party.integration.openweather.parser.ExternalWeatherFilterParser;
@@ -16,8 +16,8 @@ public class OpenWeather4PartyIntegrationService {
     @Autowired
     private ExternalWeatherFilterParser externalWeatherFilterParser;
 
-    public ExternalWeatherDTO findWeather(PlaylistFilterDTO playlistFilterDTO) {
-        ExternalWeatherFilterDTO externalWeatherFilterDTO = externalWeatherFilterParser.toExternal(playlistFilterDTO);
+    public ExternalWeatherDTO findWeather(PlaylistFilter playlistFilter) {
+        ExternalWeatherFilterDTO externalWeatherFilterDTO = externalWeatherFilterParser.toExternal(playlistFilter);
         return openWeather4PartyClient.findWeather(
                 externalWeatherFilterDTO.cityName,
                 externalWeatherFilterDTO.latitude,

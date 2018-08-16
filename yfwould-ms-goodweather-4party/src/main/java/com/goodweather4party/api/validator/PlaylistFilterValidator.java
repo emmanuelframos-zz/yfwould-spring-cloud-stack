@@ -1,6 +1,6 @@
 package com.goodweather4party.api.validator;
 
-import com.goodweather4party.api.dto.PlaylistFilterDTO;
+import com.goodweather4party.api.dto.PlaylistFilter;
 import com.goodweather4party.exception.BusinessException;
 import com.goodweather4party.exception.ExceptionMessages;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,7 @@ import java.util.Objects;
 @Component
 public class PlaylistFilterValidator {
 
-    public void validate(PlaylistFilterDTO filter) throws BusinessException {
+    public void validate(PlaylistFilter filter) throws BusinessException {
 
         if (Objects.isNull(filter))
             throw new BusinessException(ExceptionMessages.INVALID_PLAYLIST);

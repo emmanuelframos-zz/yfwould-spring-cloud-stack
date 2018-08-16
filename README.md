@@ -86,11 +86,11 @@ Rest documentation for microservice, it can be accesed on:
 ## Usage
 Find a playlist using city name:
 ~~~
-curl http://localhost:8762/ms-goodweather-4party/api/v1/playlist?cityName=Curitiba 
+curl -X GET 'http://localhost:8762/ms-goodweather-4party/api/v1/playlist/city?cityName=Curitiba' -v
 ~~~
 Find a playlist using geographical coordinates (latitude and longitude):
 ~~~     
-curl http://localhost:8762/ms-goodweather-4party/api/v1/playlist?latitude=-25&longitude=-49 
+curl -X GET 'http://localhost:8762/ms-goodweather-4party/api/v1/playlist/coordinates?latitude=-25&longitude=-49' -v
 ~~~
 
 ## Load Test 

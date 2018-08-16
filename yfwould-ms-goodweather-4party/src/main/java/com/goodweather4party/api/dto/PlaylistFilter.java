@@ -2,16 +2,21 @@ package com.goodweather4party.api.dto;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.Serializable;
 import java.util.Objects;
 
-public class PlaylistFilterDTO implements Serializable {
+public class PlaylistFilter {
 
-    public String cityName;
+    private String cityName;
 
-    public Integer latitude;
+    private Integer latitude;
 
-    public Integer longitude;
+    private Integer longitude;
+
+    private PlaylistFilter(){}
+
+    public static PlaylistFilter build(){
+        return new PlaylistFilter();
+    }
 
     public boolean hasCityName(){
         return !StringUtils.isEmpty(this.cityName);
@@ -33,16 +38,31 @@ public class PlaylistFilterDTO implements Serializable {
         return !this.hasLatitude() && !this.hasLongitude() && !this.hasCityName();
     }
 
-    public void setCityName(String cityName) {
+    public PlaylistFilter cityName(String cityName){
         this.cityName = cityName;
+        return this;
     }
 
-    public void setLatitude(Integer latitude) {
+    public PlaylistFilter latitude(Integer latitude){
         this.latitude = latitude;
+        return this;
     }
 
-    public void setLongitude(Integer longitude) {
+    public PlaylistFilter longitude(Integer longitude){
         this.longitude = longitude;
+        return this;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public Integer getLatitude() {
+        return latitude;
+    }
+
+    public Integer getLongitude() {
+        return longitude;
     }
 
     public String toString(){
